@@ -2,4 +2,10 @@
 
 Esto es una versión personal del Trabajo Práctico Integrador Parte 1: RESTApi de F1
 
-_WORK IN PROGRESS_
+## Recursos usados
+
+- Javascript
+- ORM Sequelize
+- SQLite 3
+- Jest para los test
+- Express
