@@ -18,7 +18,12 @@ app.use(equiposRoutes);
 
 app.use(pilotosRoutes);
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
-});
+if (!module.parent) {
+  const port = process.env.PORT || 3000;
+  app.locals.fechaInicio = new Date();
+  app.listen(port, () => {
+    console.log(`Servidor corriendo en el puerto ${port}`);
+  });
+}
+
+module.exports = app;

@@ -40,7 +40,7 @@ const createEquipo = async (req, res) => {
       NombreEquipo: req.body.NombreEquipo
     });
 
-    res.status(201).json(equipo);
+    res.status(200).json(equipo);
   } catch (error) {
     res.status(500).send({
       message: "Error al crear el equipo"

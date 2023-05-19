@@ -5,7 +5,8 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "standard", "eslint-config-prettier"],
+  "extends": ["eslint:recommended", "standard", "plugin:jest/recommended", "eslint-config-prettier"],
+  "plugins": ["jest"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest"
