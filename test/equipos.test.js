@@ -6,7 +6,7 @@ const equipoAlta = {
 };
 
 const equipoModificacion = {
-  IdEquipoF1: 12,
+  IdEquipoF1: 13,
   NombreEquipo: "Equipo " + (() => (Math.random() + 1).toString(36).substring(2))()
 };
 
@@ -54,15 +54,15 @@ describe("POST /api/equipos", () => {
 });
 
 describe("PUT /api/equipos", () => {
-  it("Debería devolver el equipo con el id 12 modificado", async () => {
-    const res = await request(app).put("/api/equipos/12").send(equipoModificacion);
+  it("Debería devolver el equipo con el id 13 modificado", async () => {
+    const res = await request(app).put("/api/equipos/13").send(equipoModificacion);
     expect(res.statusCode).toEqual(200);
   });
 });
 
 describe("DELETE /api/equipos", () => {
   it("Debería devolver el equipo con el id 12 eliminado", async () => {
-    const res = await request(app).delete("/api/equipos/12");
+    const res = await request(app).delete("/api/equipos/13");
     expect(res.statusCode).toEqual(200);
   });
 });
