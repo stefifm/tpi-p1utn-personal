@@ -24,7 +24,7 @@ const getAllPilotos = async (req, res) => {
     });
 
     return res.json({
-      items: rows,
+      Items: rows,
       RegistrosTotal: count
     });
   } catch (error) {

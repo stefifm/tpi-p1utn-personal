@@ -22,7 +22,7 @@ describe("GET /api/pilotos", () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(
       expect.objectContaining({
-        items: expect.arrayContaining([
+        Items: expect.arrayContaining([
           expect.objectContaining({
             IdPiloto: expect.any(Number),
             NombrePiloto: expect.any(String),
