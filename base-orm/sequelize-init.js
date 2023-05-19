@@ -47,7 +47,7 @@ const equipos = sequelize.define(
 const pilotos = sequelize.define(
   "pilotos",
   {
-    IdPilotoF1: {
+    IdPiloto: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
