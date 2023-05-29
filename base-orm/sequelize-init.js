@@ -100,6 +100,16 @@ const pilotos = sequelize.define(
           msg: "La cantidad de carreras no puede estar vacía"
         }
       }
+    },
+    Campeon: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: "El campo campeon no puede estar vacío"
+        }
+      }
     }
   },
   {

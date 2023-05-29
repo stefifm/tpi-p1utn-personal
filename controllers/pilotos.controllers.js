@@ -16,7 +16,14 @@ const getAllPilotos = async (req, res) => {
     const TamanioPagina = 10;
 
     const { count, rows } = await pilotos.findAndCountAll({
-      attributes: ["IdPiloto", "NombrePiloto", "FechaNacimiento", "IdEquipoF1", "CantidadCarreras"],
+      attributes: [
+        "IdPiloto",
+        "NombrePiloto",
+        "FechaNacimiento",
+        "IdEquipoF1",
+        "CantidadCarreras",
+        "Campeon"
+      ],
       order: [["NombrePiloto", "ASC"]],
       where,
       offset: (Pagina - 1) * TamanioPagina,
@@ -37,7 +44,14 @@ const getAllPilotos = async (req, res) => {
 const getPilotoById = async (req, res, next) => {
   try {
     const items = await pilotos.findOne({
-      attributes: ["IdPiloto", "NombrePiloto", "FechaNacimiento", "IdEquipoF1", "CantidadCarreras"],
+      attributes: [
+        "IdPiloto",
+        "NombrePiloto",
+        "FechaNacimiento",
+        "IdEquipoF1",
+        "CantidadCarreras",
+        "Campeon"
+      ],
       where: { IdPiloto: req.params.id }
     });
 
@@ -61,7 +75,8 @@ const createPiloto = async (req, res, next) => {
       NombrePiloto: req.body.NombrePiloto,
       FechaNacimiento: req.body.FechaNacimiento,
       IdEquipoF1: req.body.IdEquipoF1,
-      CantidadCarreras: req.body.CantidadCarreras
+      CantidadCarreras: req.body.CantidadCarreras,
+      Campeon: req.body.Campeon
     });
 
     res.status(200).json(data.dataValues);
@@ -87,7 +102,8 @@ const updatePiloto = async (req, res, next) => {
         NombrePiloto: req.body.NombrePiloto,
         FechaNacimiento: req.body.FechaNacimiento,
         IdEquipoF1: req.body.IdEquipoF1,
-        CantidadCarreras: req.body.CantidadCarreras
+        CantidadCarreras: req.body.CantidadCarreras,
+        Campeon: req.body.Campeon
       },
       {
         where: { IdPiloto: req.params.id }
