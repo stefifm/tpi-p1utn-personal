@@ -1,7 +1,11 @@
-import React from 'react'
+import Equipos from '../components/Equipos/Equipos'
 
 function EquiposPages() {
-  return <div>EquiposPages</div>
+  return (
+    <>
+      <Equipos />
+    </>
+  )
 }
 
 export default EquiposPages

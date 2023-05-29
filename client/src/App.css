@@ -11,6 +11,16 @@
   box-shadow: 5px 10px 10px 5px #005792;
 }
 
+.table-styles {
+  background: #e7eaf6;
+  border: 1px solid #005792;
+}
+
+thead {
+  background: #005792;
+  color: #ffffff;
+}
+
 footer {
   padding: 3rem;
   background-color: #005792;
