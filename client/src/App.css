@@ -1,0 +1,47 @@
+.divBody {
+  background: #c7b198;  
+
+  min-height: 85vh;
+  padding: 1rem;
+}
+
+.home-card {
+  background: #e7eaf6;
+  border-radius: 2rem;
+  box-shadow: 5px 10px 10px 5px #005792;
+}
+
+footer {
+  padding: 3rem;
+  background-color: #005792;
+  color: #ffffff;
+  height: 15vh;
+}
+
+
+.social {
+  color: #ffffff;
+  padding: 0.7rem;
+  margin: 0.7rem;
+  border-radius: 0.3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.twitter {
+  background-color: #1DA1F2;
+  
+}
+
+.instagram {
+  background-color: #C13584;
+}
+
+
+.github {
+  background-color: #333333;
+}
+  
+.fab {
+  font-size: 1.2rem;
+}
+
