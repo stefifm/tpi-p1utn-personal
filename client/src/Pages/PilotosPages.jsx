@@ -1,7 +1,11 @@
-import React from 'react'
+import PilotosBuscar from '../components/Pilotos/PilotosBuscar'
 
 function PilotosPages() {
-  return <div>PilotosPages</div>
+  return (
+    <>
+      <PilotosBuscar />
+    </>
+  )
 }
 
 export default PilotosPages
