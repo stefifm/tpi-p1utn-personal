@@ -11,6 +11,10 @@ const getAllPilotos = async (req, res) => {
       };
     }
 
+    if (req.query.Campeon !== undefined && req.query.Campeon !== "") {
+      where.Campeon = req.query.Campeon === "true";
+    }
+
     const Pagina = req.query.Pagina ?? 1;
 
     const TamanioPagina = 10;
