@@ -1,11 +1,18 @@
+import { useContext } from 'react'
+import { F1Context } from '../../Context/Context'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const PilotosBuscar = () => {
+  const { NombrePiloto, setNombrePiloto, Campeon, setCampeon, buscarPilotos } =
+    useContext(F1Context)
+
   return (
-    <Form className='form-search'>
+    <Form
+      className='form-search'
+      onSubmit={(e) => e.preventDefault()}>
       <div className='container-fluid'>
         <Row>
           <Col>
@@ -20,6 +27,10 @@ const PilotosBuscar = () => {
                   <Form.Control
                     type='text'
                     placeholder='Nombre'
+                    onChange={(e) => setNombrePiloto(e.target.value)}
+                    value={NombrePiloto}
+                    maxLength='55'
+                    autoFocus
                   />
                 </Col>
               </Row>
@@ -35,10 +46,12 @@ const PilotosBuscar = () => {
                   <Form.Label>Campeon:</Form.Label>
                 </Col>
                 <Col>
-                  <Form.Select>
-                    <option></option>
-                    <option>SI</option>
-                    <option>NO</option>
+                  <Form.Select
+                    onChange={(e) => setCampeon(e.target.value)}
+                    value={Campeon}>
+                    <option value={null}></option>
+                    <option value={false}>NO</option>
+                    <option value={true}>SI</option>
                   </Form.Select>
                 </Col>
               </Row>
@@ -53,7 +66,8 @@ const PilotosBuscar = () => {
             <Button
               variant='primary'
               type='button'
-              className='btn-buscar'>
+              className='btn-buscar'
+              onClick={() => buscarPilotos(1)}>
               <i className='fa fa-search'> </i> Buscar
             </Button>
           </Col>

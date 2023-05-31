@@ -1,14 +1,34 @@
 import axios from 'axios'
 
-const data = axios.create({
-  baseURL: 'http://localhost:3000/api'
-})
+const urlResource = 'http://localhost:3000/api/pilotos'
 
-const getPilotos = (Nombre, Campeon, Pagina) =>
-  data.get('/pilotos', { params: { Nombre, Campeon, Pagina } })
-const getPiloto = (id) => data.get(`/pilotos/${id}`)
-const createPiloto = (newPiloto) => data.post('/pilotos', newPiloto)
-const updatePiloto = (id, updatedPiloto) => data.put(`/pilotos/${id}`, updatedPiloto)
-const deletePiloto = (id) => data.delete(`/pilotos/${id}`)
+const getPilotos = async (NombrePiloto, Campeon, Pagina) => {
+  const res = await axios.get(urlResource, {
+    params: {
+      NombrePiloto,
+      Campeon,
+      Pagina
+    }
+  })
 
-export { getPilotos, getPiloto, createPiloto, updatePiloto, deletePiloto }
+  return res.data
+}
+
+const getPiloto = async (piloto) => {
+  const res = await axios.get(`${urlResource}/${piloto}`)
+  return res.data
+}
+
+const createUpdatePiloto = async (piloto) => {
+  if (piloto.IdPiloto === 0) {
+    await axios.post(urlResource, piloto)
+  } else {
+    await axios.put(`${urlResource}/${piloto.IdPiloto}`, piloto)
+  }
+}
+
+const deletePiloto = async (piloto) => {
+  await axios.delete(`${urlResource}/${piloto.IdPiloto}`)
+}
+
+export { getPilotos, getPiloto, createUpdatePiloto, deletePiloto }
