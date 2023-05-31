@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <section className='mt-4 p-5 home-card'>
-      <h1>F1 API</h1>
+      <h1>
+        <i className='fa fa-flag-checkered'></i> F1 API
+      </h1>
       <p>Este ejemplo está desarrollado con las siguientes tecnologías:</p>
       <p>
         Backend: NodeJS, Express, WebApiRest, Swagger, Sequelize, Sqlite, multiples capas en
