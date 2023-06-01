@@ -9,7 +9,7 @@ const pilotoAlta = {
 };
 
 const pilotoModificacion = {
-  IdPiloto: 13,
+  IdPiloto: 11,
   NombrePiloto: "Piloto " + (() => (Math.random() + 1).toString(36).substring(2))(),
   FechaNacimiento: new Date().toISOString(),
   IdEquipoF1: 2,
@@ -70,15 +70,15 @@ describe("POST /api/pilotos", () => {
 });
 
 describe("PUT /api/pilotos/:id", () => {
-  it("Debería devolver el piloto con el id 13 modificado", async () => {
-    const res = await request(app).put("/api/pilotos/13").send(pilotoModificacion);
+  it("Debería devolver el piloto con el id 11 modificado", async () => {
+    const res = await request(app).put("/api/pilotos/11").send(pilotoModificacion);
     expect(res.statusCode).toEqual(200);
   });
 });
 
 describe("DELETE /api/pilotos/:id", () => {
-  it("Debería devolver el piloto con el id 13 eliminado", async () => {
-    const res = await request(app).delete("/api/pilotos/13");
+  it("Debería devolver el piloto con el id 11 eliminado", async () => {
+    const res = await request(app).delete("/api/pilotos/11");
     expect(res.statusCode).toEqual(200);
   });
 });
