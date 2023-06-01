@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("express-async-errors");
 require("./base-orm/sqlite-init.js");
 const equiposRoutes = require("./routes/equipos.routes.js");
 const pilotosRoutes = require("./routes/pilotos.routes.js");
@@ -43,5 +44,12 @@ if (!module.parent) {
     console.log(`Servidor corriendo en el puerto ${port}`);
   });
 }
+
+process.on("uncaughtException", (err) => {
+  // si se cae el sevidor, logueamos la causa para poder analizarlo y corregirlo a posterior.
+  console.log(`Uncaught Exception: ${err.message}`);
+  process.exit(1);
+  // el servidor se cae, tendria que haber otra app monitoriando el servidor y levantandolo nuevamente, ej pm2 (Process Manager 2)
+});
 
 module.exports = app;
