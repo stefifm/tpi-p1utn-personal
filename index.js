@@ -4,9 +4,25 @@ require("./base-orm/sqlite-init.js");
 const equiposRoutes = require("./routes/equipos.routes.js");
 const pilotosRoutes = require("./routes/pilotos.routes.js");
 
+require("dotenv").config();
+console.log("WEBSITE_SITE_NAME", process.env.WEBSITE_SITE_NAME);
+
+if (process.env.WEBSITE_SITE_NAME) {
+  process.env.base = process.env.base_azure;
+}
+
+console.log("base", process.env.base);
+console.log("NODE_ENV", process.env.NODE_ENV);
+
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+// Para permitir CORS desde cualquier origen
+app.use(
+  cors({
+    origin: "*"
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Bienvenidos a la REST APi de F1!!!");
