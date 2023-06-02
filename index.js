@@ -8,13 +8,6 @@ const pilotosRoutes = require("./routes/pilotos.routes.js");
 require("dotenv").config();
 console.log("WEBSITE_SITE_NAME", process.env.WEBSITE_SITE_NAME);
 
-if (process.env.WEBSITE_SITE_NAME) {
-  process.env.base = process.env.base_azure;
-}
-
-console.log("base", process.env.base);
-console.log("NODE_ENV", process.env.NODE_ENV);
-
 const app = express();
 app.use(express.json());
 
